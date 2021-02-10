@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MVCDemo.Models.Driver>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <p>@Html.ActionLink("Create New Driver", "Create")</p>
+
+    <table class="table">
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(x => x.Name)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(x => x.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(x => x.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(x => x.LicenseID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(x => x.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(x => x.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(x => x.DateOfExpiry)
+            </th>
+            <th>Actions</th>
+        </tr>
+
+
+        @foreach (var a in Model)
+        {
+
+            <tr>
+                <td>@Html.DisplayFor(x => a.Name)</td>
+
+                <td>@Html.DisplayFor(x => a.Email)</td>
+                <td>@Html.DisplayFor(x => a.Phone)</td>
+                <td>@Html.DisplayFor(x => a.LicenseID)</td>
+                <td>@Html.DisplayFor(x => a.Age)</td>
+                <td>@Html.DisplayFor(x => a.Address)</td>
+
+                <td>@Html.DisplayFor(x => a.DateOfExpiry)</td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit",new { id = a.Id })
+                    @Html.ActionLink("Details", "Details", new { id = a.Id })
+                    @Html.ActionLink("Delete", "Delete", new { id = a.Id })
+
+                </td>
+            </tr>
+        }
+    </table>
+
+
+
+</div>

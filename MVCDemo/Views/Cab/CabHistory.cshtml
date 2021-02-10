@@ -1,0 +1,26 @@
+﻿@model MVCDemo.ViewModel.CabPassengerViewModel
+@{
+    ViewBag.Title = "CabHistory";
+}
+
+<h2>CabHistory</h2>
+
+<h1>@Model.Cab.Name</h1>
+
+
+@if(Model.Passengers.Count==0){
+<p>no one has rented this car </p>
+}
+
+<ul>
+
+    @foreach(var passenger in Model.Passengers)
+    {
+    <h1> Name:<li>@passenger.Name</li></h1>
+    <h1>Balance:    <li>@passenger.Balance</li></h1>
+    }
+
+    ===============================================
+</ul>
+
+

@@ -1,0 +1,36 @@
+﻿@model MVCDemo.Models.Driver
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Driver Details</h4>
+
+    <hr/>
+    <dl class="dl-horizontal">
+
+        <dt>@Html.DisplayNameFor(x => x.Name)</dt>
+        <dd>@Html.DisplayFor(x => x.Name)</dd>
+        <dt>@Html.DisplayNameFor(x => x.Email)</dt>
+        <dd>@Html.DisplayFor(x => x.Email)</dd>
+        <dt>@Html.DisplayNameFor(x => x.Phone)</dt>
+        <dd>@Html.DisplayFor(x => x.Phone)</dd>
+        <dt>@Html.DisplayNameFor(x => x.LicenseID)</dt>
+        <dd>@Html.DisplayFor(x => x.LicenseID)</dd>
+        <dt>@Html.DisplayNameFor(x => x.Address)</dt>
+        <dd>@Html.DisplayFor(x => x.Address)</dd>
+        <dt>@Html.DisplayNameFor(x => x.Age)</dt>
+        <dd>@Html.DisplayFor(x => x.Age)</dd>
+        <dt>@Html.DisplayNameFor(x => x.DateOfExpiry)</dt>
+        <dd>@Html.DisplayFor(x => x.DateOfExpiry)</dd>
+
+    </dl>
+
+    <p>
+        @Html.ActionLink("Edit","Edit",new { id=Model.Id}) ||
+        @Html.ActionLink("Back to list","Index")
+    </p>
+</div>
+

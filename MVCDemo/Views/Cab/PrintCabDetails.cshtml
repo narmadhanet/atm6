@@ -1,0 +1,16 @@
+﻿@model IEnumerable<MVCDemo.Models.Cab>
+@{
+    ViewBag.Title = "PrintCabDetails";
+}
+
+<h2>List of Cabs</h2>
+
+@foreach (var cab in Model)
+{
+    <li> 
+  @Html.ActionLink(cab.Name,"Details","Cab",new { id=cab.Id},null)
+ </li>
+
+}
+
+

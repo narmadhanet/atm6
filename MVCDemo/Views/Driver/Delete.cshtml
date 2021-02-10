@@ -1,0 +1,42 @@
+﻿@model MVCDemo.Models.Driver
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this record</h3>
+
+<div>
+    <h4>Driver Details</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(x => x.Name)</dt>
+        <dd>@Html.DisplayFor(x => x.Name)</dd>
+        <dt>@Html.DisplayNameFor(x => x.Email)</dt>
+        <dd>@Html.DisplayFor(x => x.Email)</dd>
+        <dt>@Html.DisplayNameFor(x => x.Phone)</dt>
+        <dd>@Html.DisplayFor(x => x.Phone)</dd>
+        <dt>@Html.DisplayNameFor(x => x.LicenseID)</dt>
+        <dd>@Html.DisplayFor(x => x.LicenseID)</dd>
+        <dt>@Html.DisplayNameFor(x => x.Address)</dt>
+        <dd>@Html.DisplayFor(x => x.Address)</dd>
+        <dt>@Html.DisplayNameFor(x => x.Age)</dt>
+        <dd>@Html.DisplayFor(x => x.Age)</dd>
+        <dt>@Html.DisplayNameFor(x => x.DateOfExpiry)</dt>
+        <dd>@Html.DisplayFor(x => x.DateOfExpiry)</dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+
+        <input type="submit" value="Delete" class="btn btn-default" />
+        @Html.ActionLink("Back to list", "Index")
+
+    }
+</div>

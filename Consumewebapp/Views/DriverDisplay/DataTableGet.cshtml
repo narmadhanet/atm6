@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "DataTableGet";
+}
+
+<h2>DataTableGet</h2>
+
+<table id="driver" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+</table>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $("#driver").DataTable({
+                ajax: {
+                    url: "http://localhost:62104/api/Driver",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "Name"
+                    },
+                    {
+                        data: "Age"
+
+                    },
+                    {
+                        data: "Phone"
+
+                    },
+                    {
+                        data: "Address"
+                    },
+                    {
+                        data: "Id",
+                        render: function (data) {
+
+                            console.log("sample data");
+                            return "<button class='btn-link js-delete' data-driver-id=" + data + ">Delete</button>";
+
+                        }
+                    }
+                ]
+            });
+
+
+            $("#driver").on("click", ".js-delete", function () {
+                var button = $(this);
+
+                bootbox.confirm("are you sur eyou want to delte this driver ?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "http://localhost:62104/api/Driver/" + button.attr("data-driver-id"),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+
+        });   </script>
+    }
+

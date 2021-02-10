@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Sample";
+}
+
+<h2>Sample</h2>
+
+<h2>@ViewBag.CabName</h2>
+<h2>@ViewBag.Driver</h2>
+
+<h2>@ViewData["Title"]</h2>
+<h2>@TempData["sample"]</h2>
+
+@{ 
+    int a = 10;
+    int b = 20;
+    int c = a + b;
+
+    <div>@c</div>
+}
+
+

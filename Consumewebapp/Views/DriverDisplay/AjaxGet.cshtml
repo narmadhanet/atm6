@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "AjaxGet";
+}
+
+<h2>AjaxGet</h2>
+
+<table id="tbdrivers">
+    <tr style="background-color:burlywood;color:black">
+        <td>Name</td>
+        <td>Address</td>
+        <td>Age</td>
+        <td>Phone</td>
+    </tr>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "http://localhost:62104/api/Driver",
+                type: "Get",
+                success: function (data) {
+                    console.log("inside function");
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        $("<tr><td>" + data[i].Name + "</td><td>" + data[i].Age + "</td><td>" + data[i].Address + "</td><td>" + data[i].Phone + "</td></tr>").appendTo("#tbdrivers");
+
+                    }
+
+                },
+                error: function (msg) { alert(msg); }
+            });
+        });
+    </script>
+    }
+
